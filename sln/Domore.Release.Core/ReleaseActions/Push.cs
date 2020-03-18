@@ -3,16 +3,20 @@ using System.IO;
 
 namespace Domore.ReleaseActions {
     internal class Push : ReleaseAction {
-        public IDictionary<string, string> Source { get; set; } = new Dictionary<string, string>();
-        public IDictionary<string, string> Project { get; set; } = new Dictionary<string, string>();
+        public string Stage { get; set; }
+        public string Configuration { get; set; }
+        public string Platform { get; set; }
+        public IList<string> Source { get; } = new List<string>();
+        public IList<string> Package { get; } = new List<string>();
 
         public override void Work() {
-            foreach (var project in Project.Values) {
-                var packageDir = Path.Combine(SolutionDirectory, project, "bin", "Release");
-                var packageFile = Path.Combine(packageDir, $"{project}.{Context.Version.StagedVersion}.nupkg");
+            foreach (var package in Package) {
+                var packageVer = Solution.GetVersion(Stage);
+                var packageDir = Path.Combine(Solution.Root, package, "bin", Platform, Configuration);
+                var packageFil = Path.Combine(packageDir, $"{package}.{packageVer.StagedVersion}.nupkg");
 
-                foreach (var source in Source.Values) {
-                    Process("nuget", "push", $"\"{packageFile}\"", "-Source", source);
+                foreach (var source in Source) {
+                    Process("nuget", "push", $"\"{packageFil}\"", "-Source", source);
                 }
             }
         }

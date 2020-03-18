@@ -8,32 +8,27 @@ namespace Domore {
 
     public class Release {
         public Release(IEnumerable<string> input) {
-            var cmd = new ReleaseCommand(input);
-            var stage = cmd.Arg("Stage");
-            var release = cmd.Arg("Release") == "yes";
-            if (release == false && string.IsNullOrWhiteSpace(stage)) {
-                throw new InvalidOperationException("Must either stage or release");
-            }
-
-            var solutionDirectory = cmd.Arg("SolutionDirectory");
-            var context = new ReleaseContext();
+            var command = new ReleaseCommand(input);
             var actions = new ReleaseAction[] {
+                new Clone(),
                 new Bump(),
+                new Restore(),
                 new Build(),
+                new Pack(),
                 new Tag(),
                 new Push()
             };
 
             foreach (var action in actions) {
+                CONF.Configure(action, "");
                 CONF.Configure(action, "ReleaseAction");
                 CONF.Configure(action);
 
-                if (cmd.Arg(action.GetType().Name) != "no") {
-                    action.Context = context;
-                    action.Stage = stage;
-                    action.SolutionDirectory = solutionDirectory;
-                    action.Work();
-                }
+                command.Configure(action, "");
+                command.Configure(action, "ReleaseAction");
+                command.Configure(action);
+
+                action.Work();
             }
         }
     }

@@ -1,7 +1,9 @@
 ﻿namespace Domore.ReleaseActions {
     internal class Tag : ReleaseAction {
+        public string Stage { get; set; }
+
         public override void Work() {
-            var tag = Context.Version.StagedVersion;
+            var tag = Solution.GetVersion(Stage).StagedVersion;
             Process("git", "status");
             Process("git", "commit", "-a", "-m", $"\"(Auto-)Commit version '{tag}'.\"");
             Process("git", "push");
