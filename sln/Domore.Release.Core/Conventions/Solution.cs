@@ -11,7 +11,7 @@ namespace Domore.Conventions {
         public string Parent { get; }
         public string Root => PATH.Combine(Parent, "sln");
         public string Properties => PATH.Combine(Root, "Directory.Build.props");
-        public string Name => PATH.GetFileName(Root);
+        public string Name => PATH.GetFileName(Parent);
         public string Path => PATH.Combine(Root, $"{Name}.sln");
         public string File => PATH.GetFileName(Path);
         public Project.Setup Setup => new Project.Setup(PATH.Combine(Root, $"{Name}-setup"));
