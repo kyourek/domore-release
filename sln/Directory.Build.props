@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <PropertyGroup>
+        <Authors>Ken Yourek</Authors>
+        <Copyright>Copyright © Ken Yourek 2020</Copyright>
+        <VersionPrefix></VersionPrefix>
+        <VersionSuffix></VersionSuffix>
+        <AssemblyVersion></AssemblyVersion>
+        <InformationalVersion></InformationalVersion>
+        <FileVersion>0.0.1</FileVersion>
+        <PackageVersion></PackageVersion>
+        <PackageProjectUrl></PackageProjectUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl></RepositoryUrl>
+        <RepositoryBranch></RepositoryBranch>
+        <RepositoryCommit></RepositoryCommit>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageTags></PackageTags>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+</Project>

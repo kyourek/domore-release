@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Domore</RootNamespace>
+        <Description>Do More Release Core</Description>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="Domore.Conf" Version="3.6.4" />
+      <PackageReference Include="Domore.Logs" Version="2.0.3" />
+    </ItemGroup>
+</Project>
