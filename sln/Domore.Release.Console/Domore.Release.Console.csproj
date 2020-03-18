@@ -6,6 +6,10 @@
         <Description>Do More Release Console</Description>
     </PropertyGroup>
     <ItemGroup>
+      <PackageReference Include="Domore.Conf.ConfigurationManager" Version="3.6.4" />
+      <PackageReference Include="Domore.Logs.Conf" Version="2.1.0" />
+    </ItemGroup>
+    <ItemGroup>
       <ProjectReference Include="..\Domore.Release.Core\Domore.Release.Core.csproj" />
     </ItemGroup>
 </Project>
