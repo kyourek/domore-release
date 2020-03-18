@@ -53,6 +53,7 @@ namespace Domore {
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardError = true;
                 process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.WorkingDirectory = Solution.Parent;
                 process.ErrorDataReceived += errorDataReceived;
                 process.OutputDataReceived += outputDataReceived;
                 process.Start();
