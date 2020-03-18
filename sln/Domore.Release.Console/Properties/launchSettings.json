@@ -2,7 +2,7 @@
     "profiles": {
         "Domore.Release.Console": {
             "commandName": "Project",
-            "commandLineArgs": "-Repository=https://github.com/kyourek/domore-release.git -Package[0]=Domore.Release.Core -Package[1]=Domore.Release.Console -Push.Source[0]=N:\\ -Push.Source[1]=https://api.nuget.org/v3/index.json -Stage=alpha"
+            "commandLineArgs": "-Repository=https://github.com/kyourek/domore-release.git -Package[0]=Domore.Release.Core"
         }
     }
 }

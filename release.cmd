@@ -1,1 +1,1 @@
-dotnet .\sln\Domore.Release.Console\bin\Debug\netcoreapp3.1\Domore.Release.Console.dll -Repository=https://github.com/kyourek/domore-release.git -Package[0]=Domore.Release.Core -Package[1]=Domore.Release.Console -Push.Source[0]=N:\ -Push.Source[1]=https://api.nuget.org/v3/index.json %*
+dotnet .\sln\Domore.Release.Console\bin\Debug\netcoreapp3.1\Domore.Release.Console.dll -Repository=https://github.com/kyourek/domore-release.git -Package[0]=Domore.Release.Core %*

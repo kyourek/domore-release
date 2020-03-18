@@ -46,5 +46,8 @@ namespace Domore {
                 action.Work();
             }
         }
+
+        public Release(object command) : this(new ReleaseCommand(command)) {
+        }
     }
 }

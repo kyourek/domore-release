@@ -5,14 +5,13 @@ namespace Domore {
     using CONF = Conf.Conf;
 
     internal class Program {
-        private static void Main(string[] args) =>
-            Run(args);
-
-        public static void Run(string[] args) {
+        private static void Main(string[] args) {
             try {
                 CONF.Container.ContentsProvider = new AppSettingsProvider();
                 CONF.Container.ConfigureLogging();
-                new Release(new ReleaseCommand(args));
+             
+                var command = ReleaseCommand.From(args);
+                new Release(command);
             }
             catch (Exception ex) {
                 Console.WriteLine(ex);
