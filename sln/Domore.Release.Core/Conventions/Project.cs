@@ -1,11 +1,8 @@
-﻿using System.IO;
-using System.Linq;
-
-using FILE = System.IO.File;
+﻿using FILE = System.IO.File;
 using PATH = System.IO.Path;
 
 namespace Domore.Conventions {
-    internal class Project {
+    public class Project {
         public string Root { get; }
         public string Extension { get; }
 
@@ -24,23 +21,6 @@ namespace Domore.Conventions {
         public Project(string root, string extension) {
             Root = root;
             Extension = extension;
-        }
-
-        public class Setup : Project {
-            public string MsiPath =>
-                Directory
-                    .GetFiles(BinPath, "*.msi")
-                    .OrderByDescending(path => FILE.GetCreationTimeUtc(path))
-                    .First();
-
-            public string MsiName =>
-                PATH.GetFileName(MsiPath);
-
-            public string Version =>
-                MsiName.Split('-').Last().Replace(".msi", "");
-
-            public Setup(string root) : base(root, ".wixproj") {
-            }
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 namespace Domore {
     using Conf;
 
-    internal class ReleaseCommand {
+    public class ReleaseCommand {
         private string ConfContent { get; }
         private ConfContainer ConfContainer { get; }
         private IDictionary<string, string> Argument { get; }

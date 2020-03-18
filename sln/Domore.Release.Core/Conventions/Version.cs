@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Domore.Conventions {
-    internal class Version {
+    public class Version {
         private Version(int major, int minor, int build, string stage, int revision) {
             Major = major;
             Minor = minor;

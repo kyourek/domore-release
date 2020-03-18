@@ -8,11 +8,11 @@ namespace Domore {
         private static void Main(string[] args) =>
             Run(args);
 
-        public static void Run(string[] input) {
+        public static void Run(string[] args) {
             try {
                 CONF.Container.ContentsProvider = new AppSettingsProvider();
                 CONF.Container.ConfigureLogging();
-                new Release(input);
+                new Release(new ReleaseCommand(args));
             }
             catch (Exception ex) {
                 Console.WriteLine(ex);

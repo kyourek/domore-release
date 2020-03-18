@@ -23,7 +23,6 @@ namespace Domore.ReleaseActions {
             }
         }
 
-        public string Url { get; set; }
         public string Stage { get; set; }
 
         public string Branch {
@@ -33,15 +32,19 @@ namespace Domore.ReleaseActions {
         private string _Branch;
 
         public override void Work() {
-            var dirInfo = new DirectoryInfo(Solution.Parent);
+            var path = CodeBase.Path;
+            var repo = CodeBase.Repository;
+
+            var dirInfo = new DirectoryInfo(path);
             if (dirInfo.Exists) {
                 Delete(dirInfo);
             }
             dirInfo.Create();
-            Process("git", "clone", Url, dirInfo.FullName);
+
+            Process("git", "clone", repo, path);
             Process("git", "checkout", Branch);
 
-            Solution.SetRepository(Url, Branch, Process("git", "rev-parse", "HEAD"));
+            Solution.SetRepository(repo, Branch, Process("git", "rev-parse", "HEAD"));
         }
     }
 }

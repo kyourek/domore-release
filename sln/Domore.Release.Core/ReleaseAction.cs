@@ -6,21 +6,11 @@ namespace Domore {
     using Conventions;
     using Logs;
 
-    internal abstract class ReleaseAction {
+    public abstract class ReleaseAction {
         protected ILog Log =>
             _Log ?? (
             _Log = Logging.For(this));
         private ILog _Log;
-
-        protected CodeBase CodeBase =>
-            _CodeBase ?? (
-            _CodeBase = new CodeBase(Root));
-        private CodeBase _CodeBase;
-
-        protected Solution Solution =>
-            _Solution ?? (
-            _Solution = new Solution(CodeBase.Path));
-        private Solution _Solution;
 
         protected string Process(string fileName, params string[] arguments) {
             var outp = "";
@@ -53,7 +43,7 @@ namespace Domore {
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardError = true;
                 process.StartInfo.RedirectStandardOutput = true;
-                process.StartInfo.WorkingDirectory = Solution.Parent;
+                process.StartInfo.WorkingDirectory = CodeBase.Path;
                 process.ErrorDataReceived += errorDataReceived;
                 process.OutputDataReceived += outputDataReceived;
                 process.Start();
@@ -68,7 +58,8 @@ namespace Domore {
             return outp;
         }
 
-        public string Root { get; set; }
+        public Solution Solution { get; set; }
+        public CodeBase CodeBase { get; set; }
 
         public IDictionary<string, string> ProcessPath {
             get => _ProcessPath ?? (_ProcessPath = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase));

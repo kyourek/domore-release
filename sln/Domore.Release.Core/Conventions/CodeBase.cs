@@ -1,20 +1,32 @@
 ﻿using System;
+using System.Linq;
 using PATH = System.IO.Path;
 
 namespace Domore.Conventions {
-    internal class CodeBase {
-        public string Root { get; }
-        public string Path { get; }
+    public class CodeBase {
+        public string Repository { get; }
 
-        public CodeBase(string root) {
-            Root = root;
-            Path = PATH.IsPathRooted(Root)
-                ? Root
-                : PATH.Combine(
-                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData, Environment.SpecialFolderOption.None),
-                    "Domore",
-                    "Release",
-                    Root);
+        public string Name =>
+            _Name ?? (
+            _Name = PATH.GetFileNameWithoutExtension(Repository.Split('/').Last()));
+        private string _Name;
+
+        public string Path =>
+            _Path ?? (
+            _Path = PATH.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData, Environment.SpecialFolderOption.None),
+                "Domore",
+                "Release",
+                Name));
+        private string _Path;
+
+        public Solution Solution =>
+            _Solution ?? (
+            _Solution = new Solution(Name, PATH.Combine(Path, "sln")));
+        private Solution _Solution;
+
+        public CodeBase(string repository) {
+            Repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
     }
 }

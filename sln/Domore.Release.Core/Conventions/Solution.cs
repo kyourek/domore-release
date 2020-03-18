@@ -1,31 +1,33 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Xml.Linq;
-
-using FILE = System.IO.File;
 using PATH = System.IO.Path;
 
 namespace Domore.Conventions {
-    internal class Solution {
-        public string Parent { get; }
-        public string Root => PATH.Combine(Parent, "sln");
-        public string Properties => PATH.Combine(Root, "Directory.Build.props");
-        public string Name => PATH.GetFileName(Parent);
-        public string Path => PATH.Combine(Root, $"{Name}.sln");
-        public string File => PATH.GetFileName(Path);
-        public Project.Setup Setup => new Project.Setup(PATH.Combine(Root, $"{Name}-setup"));
-        public IEnumerable<Project> Tests => Projects.Where(project => project.Name.EndsWith("Tests"));
-        public string SetupFile => Directory
-            .GetFiles(Setup.Root, "*.msi")
-            .OrderByDescending(path => FILE.GetCreationTimeUtc(path))
-            .First();
+    public class Solution {
+        public string Root { get; }
+        public string Name { get; }
+
+        public string Path =>
+            _Path ?? (
+            _Path = PATH.Combine(Root, $"{Name}.sln"));
+        private string _Path;
+
+        public string File => 
+            _File ?? (
+            _File = PATH.GetFileName(Path));
+        private string _File;
+
+        public string Properties => 
+            _Properties ?? (
+            _Properties = PATH.Combine(Root, "Directory.Build.props"));
+        private string _Properties;
 
         public IEnumerable<Project> Projects {
             get {
                 var directories = Directory.GetDirectories(Root);
                 foreach (var directory in directories) {
-                    var extensions = new[] { ".csproj", ".vbp", ".wixproj" };
+                    var extensions = new[] { ".csproj" };
                     foreach (var extension in extensions) {
                         var project = new Project(directory, extension);
                         if (project.Exists) {
@@ -37,8 +39,9 @@ namespace Domore.Conventions {
             }
         }
 
-        public Solution(string parent) {
-            Parent = parent;
+        public Solution(string name, string root) {
+            Name = name;
+            Root = root;
         }
 
         public Version GetVersion(string stage) {
