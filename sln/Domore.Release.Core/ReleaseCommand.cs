@@ -10,7 +10,7 @@ namespace Domore {
         public ReleaseCommand(IEnumerable<string> input) {
             Input = input;
             Argument = (Input ?? new string[] { })
-                .Where(inp => inp.StartsWith('-'))
+                .Where(inp => inp.StartsWith("-"))
                 .Select(inp => inp.TrimStart('-'))
                 .Select(inp => inp.Split(new[] { '=' }, 2, StringSplitOptions.RemoveEmptyEntries))
                 .ToDictionary(

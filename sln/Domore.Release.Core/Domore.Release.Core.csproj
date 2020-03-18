@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFrameworks>net40;net45;netcoreapp3.1</TargetFrameworks>
         <RootNamespace>Domore</RootNamespace>
         <Description>Do More Release Core</Description>
     </PropertyGroup>

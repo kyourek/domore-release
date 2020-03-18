@@ -3,18 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domore.Release.Console", "Domore.Release.Console\Domore.Release.Console.csproj", "{34D9E003-D486-40DE-8D80-68571C05E573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domore.Release.Console", "Domore.Release.Console\Domore.Release.Console.csproj", "{34D9E003-D486-40DE-8D80-68571C05E573}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "properties", "properties", "{3D745D7E-2B03-46B2-9FC4-A4932FCE9867}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domore.Release.Core", "Domore.Release.Core\Domore.Release.Core.csproj", "{165B3C73-DC40-4084-8EF9-46B1B9039445}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domore.Release.Core", "Domore.Release.Core\Domore.Release.Core.csproj", "{165B3C73-DC40-4084-8EF9-46B1B9039445}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{08B3FF98-BF4D-4622-AA2C-3B6F4AEFF5C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domore.Release.Core.Tests", "Domore.Release.Core.Tests\Domore.Release.Core.Tests.csproj", "{A77B3C86-B8DA-4C71-9B4C-1401F32C9647}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domore.Release.Core.Tests", "Domore.Release.Core.Tests\Domore.Release.Core.Tests.csproj", "{A77B3C86-B8DA-4C71-9B4C-1401F32C9647}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,7 +25,6 @@ Global
 		{34D9E003-D486-40DE-8D80-68571C05E573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{34D9E003-D486-40DE-8D80-68571C05E573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34D9E003-D486-40DE-8D80-68571C05E573}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34D9E003-D486-40DE-8D80-68571C05E573}.Release|Any CPU.Build.0 = Release|Any CPU
 		{165B3C73-DC40-4084-8EF9-46B1B9039445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{165B3C73-DC40-4084-8EF9-46B1B9039445}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{165B3C73-DC40-4084-8EF9-46B1B9039445}.Release|Any CPU.ActiveCfg = Release|Any CPU
