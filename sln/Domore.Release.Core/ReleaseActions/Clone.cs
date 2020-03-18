@@ -3,25 +3,6 @@ using System.IO;
 
 namespace Domore.ReleaseActions {
     internal class Clone : ReleaseAction {
-        private void Delete(DirectoryInfo info) {
-            if (null == info) throw new ArgumentNullException(nameof(info));
-
-            foreach (var dir in info.GetDirectories()) {
-                Delete(dir);
-            }
-
-            foreach (var fil in info.GetFiles()) {
-                Log.Info("Deleting file " + fil.FullName + "...");
-                fil.Attributes = FileAttributes.Normal;
-                fil.Delete();
-            }
-
-            Log.Info("Deleting directory " + info.FullName + "...");
-
-            info.Attributes = FileAttributes.Normal;
-            info.Delete(true);
-        }
-
         public string Url { get; set; }
         public string Stage { get; set; }
 
@@ -32,9 +13,9 @@ namespace Domore.ReleaseActions {
         private string _Branch;
 
         public override void Work() {
-            var dirInfo = new DirectoryInfo(Solution.Root);
+            var dirInfo = new DirectoryInfo(Solution.Parent);
             if (dirInfo.Exists) {
-                Delete(dirInfo);
+                dirInfo.Delete(recursive: true);
             }
             dirInfo.Create();
             Process("git", "clone", Url, dirInfo.FullName);

@@ -8,7 +8,8 @@ using PATH = System.IO.Path;
 
 namespace Domore.Conventions {
     internal class Solution {
-        public string Root { get; }
+        public string Parent { get; }
+        public string Root => PATH.Combine(Parent, "sln");
         public string Properties => PATH.Combine(Root, "Directory.Build.props");
         public string Name => PATH.GetFileName(Root);
         public string Path => PATH.Combine(Root, $"{Name}.sln");
@@ -36,8 +37,8 @@ namespace Domore.Conventions {
             }
         }
 
-        public Solution(string root) {
-            Root = root;
+        public Solution(string parent) {
+            Parent = parent;
         }
 
         public Version GetVersion(string stage) {
