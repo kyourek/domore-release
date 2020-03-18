@@ -53,18 +53,11 @@ namespace Domore.Conventions {
                 revision: int.Parse(revsn));
         }
 
-        public Version NextBuild() => new Version(
-            major: Major,
-            minor: Minor,
-            build: Build + 1,
-            stage: Stage,
-            revision: Revision);
-
-        public Version NewRevision(int value) => new Version(
+        public Version NextRevision() => new Version(
             major: Major,
             minor: Minor,
             build: Build,
             stage: Stage,
-            revision: value);
+            revision: Revision + 1);
     }
 }

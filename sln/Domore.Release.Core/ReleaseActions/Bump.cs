@@ -4,7 +4,7 @@
 
         public override void Work() {
             var thisVersion = Solution.GetVersion(Stage);
-            var nextVersion = thisVersion.NextBuild();
+            var nextVersion = thisVersion.NextRevision();
 
             Solution.SetVersion(nextVersion);
         }

@@ -21,10 +21,6 @@ namespace Domore.ReleaseActions {
             Process("git", "clone", Url, dirInfo.FullName);
             Process("git", "checkout", Branch);
 
-            var thisVersion = Solution.GetVersion(Stage);
-            var nextVersion = thisVersion.NextBuild();
-
-            Solution.SetVersion(nextVersion);
             Solution.SetRepository(Url, Branch, Process("git", "rev-parse", "HEAD"));
         }
     }
