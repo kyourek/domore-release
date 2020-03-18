@@ -7,7 +7,7 @@
     <VersionSuffix>alpha.3</VersionSuffix>
     <AssemblyVersion>0.0.3.3</AssemblyVersion>
     <InformationalVersion>0.0.3-alpha.3</InformationalVersion>
-    <FileVersion>0.0.3.3</FileVersion>
+    <FileVersion>0.1.0.3</FileVersion>
     <PackageVersion>0.0.3-alpha.3</PackageVersion>
     <PackageProjectUrl>https://github.com/kyourek/domore-release</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
