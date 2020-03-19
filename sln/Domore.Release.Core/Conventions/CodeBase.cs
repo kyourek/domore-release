@@ -4,6 +4,11 @@ using PATH = System.IO.Path;
 
 namespace Domore.Conventions {
     public class CodeBase {
+        private string Id =>
+            _Id ?? (
+            _Id = string.Join("_", Name, DateTime.Now.ToString("yyyyMMddhhmmss"), Guid.NewGuid().ToString("N")));
+        private string _Id;
+
         public string Repository { get; }
 
         public string Name =>
@@ -17,7 +22,8 @@ namespace Domore.Conventions {
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData, Environment.SpecialFolderOption.None),
                 "Domore",
                 "Release",
-                Name));
+                "CodeBase",
+                Id));
         private string _Path;
 
         public Solution Solution =>

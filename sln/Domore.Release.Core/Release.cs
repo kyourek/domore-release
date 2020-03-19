@@ -19,7 +19,8 @@ namespace Domore {
                 new Build(),
                 new Pack(),
                 new Tag(),
-                new Push() });
+                new Push(),
+                new Clean() });
         private IEnumerable<ReleaseAction> _Actions;
 
         public Release(ReleaseCommand command) {
@@ -35,8 +36,8 @@ namespace Domore {
                 return obj;
             }
 
-            var input = configure(this);
-            var codeBase = new CodeBase(input.Repository);
+            var info = configure(this);
+            var codeBase = new CodeBase(info.Repository);
             var solution = codeBase.Solution;
 
             foreach (var action in Actions) {
