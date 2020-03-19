@@ -3,17 +3,17 @@
   <PropertyGroup>
     <Authors>Ken Yourek</Authors>
     <Copyright>Copyright © Ken Yourek 2020</Copyright>
-    <VersionPrefix>0.1.0.7</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
-    <AssemblyVersion>0.1.0.7</AssemblyVersion>
-    <InformationalVersion>0.1.0.7</InformationalVersion>
-    <FileVersion>0.2.0.7</FileVersion>
-    <PackageVersion>0.1.0.7</PackageVersion>
+    <VersionPrefix>0.2.0</VersionPrefix>
+    <VersionSuffix>alpha.8</VersionSuffix>
+    <AssemblyVersion>0.2.0.8</AssemblyVersion>
+    <InformationalVersion>0.2.0-alpha.8</InformationalVersion>
+    <FileVersion>0.2.0.8</FileVersion>
+    <PackageVersion>0.2.0-alpha.8</PackageVersion>
     <PackageProjectUrl>https://github.com/kyourek/domore-release</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/kyourek/domore-release.git</RepositoryUrl>
     <RepositoryBranch>master</RepositoryBranch>
-    <RepositoryCommit>9ae08bb123c4e345bcb947f87ef686b6080162b6</RepositoryCommit>
+    <RepositoryCommit>def1bbb29170c7a3ec5cbd67e787404b904f16f1</RepositoryCommit>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags></PackageTags>
