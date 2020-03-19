@@ -38,12 +38,11 @@ namespace Domore {
 
             var info = configure(this);
             var codeBase = new CodeBase(info.Repository);
-            var solution = codeBase.Solution;
 
             foreach (var action in Actions) {
                 configure(action);
                 action.CodeBase = codeBase;
-                action.Solution = solution;
+                action.Solution = codeBase.Solution;
                 action.Work();
             }
         }
