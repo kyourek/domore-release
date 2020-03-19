@@ -26,7 +26,7 @@ namespace Domore {
         public Release(ReleaseCommand command) {
             Command = command ?? throw new ArgumentNullException(nameof(command));
 
-            T configure<T>(T obj) {
+            T config<T>(T obj) {
                 CONF.Configure(obj, "");
                 CONF.Configure(obj);
 
@@ -36,11 +36,11 @@ namespace Domore {
                 return obj;
             }
 
-            var info = configure(this);
+            var info = config(this);
             var codeBase = new CodeBase(info.Repository);
 
             foreach (var action in Actions) {
-                configure(action);
+                config(action);
                 action.CodeBase = codeBase;
                 action.Solution = codeBase.Solution;
                 action.Work();
