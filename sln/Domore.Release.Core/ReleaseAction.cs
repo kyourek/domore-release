@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace Domore {
     using Conventions;
@@ -43,7 +44,7 @@ namespace Domore {
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardError = true;
                 process.StartInfo.RedirectStandardOutput = true;
-                process.StartInfo.WorkingDirectory = CodeBase.Path;
+                process.StartInfo.WorkingDirectory = Directory.Exists(CodeBase.Path) ? CodeBase.Path : "";
                 process.ErrorDataReceived += errorDataReceived;
                 process.OutputDataReceived += outputDataReceived;
                 process.Start();
